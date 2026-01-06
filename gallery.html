@@ -1,0 +1,172 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>My Portfolio | Skills</title>
+  <link rel="stylesheet" href="assets/style.css" />
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+
+<header class="site-header">
+  <div class="container navbar">
+    <a class="brand" href="index.html">
+      <img class="brand-avatar" src="assets/me.jpg" alt="Sulaiman Mohammed Sulaiman Bajabaa" />
+      <div class="title">
+        <strong>Sulaiman Mohammed Sulaiman Bajabaa</strong>
+        <span>Software Development • UTeM</span>
+      </div>
+    </a>
+
+    <nav class="navlinks" aria-label="Primary">
+      <a data-nav href="index.html">Home</a>
+      <a data-nav href="about.html">About</a>
+      <a data-nav href="academics.html">Academics</a>
+      <a data-nav href="projects.html">Projects</a>
+      <a data-nav href="gallery.html">Skills</a>
+      <a data-nav href="contact.html">Contact</a>
+    </nav>
+
+    <div class="actions">
+      <button class="pill" onclick="toggleTheme()" aria-label="Toggle theme">
+        🌓 <span style="font-size:12px;color:var(--muted)">Theme</span>
+      </button>
+      <a class="pill" href="assets/resume.pdf" target="_blank" rel="noreferrer">
+        ⬇️ <span style="font-size:12px;color:var(--muted)">Resume</span>
+      </a>
+    </div>
+  </div>
+</header>
+
+<main id="main" class="container">
+  <section class="hero">
+    <div class="hero-grid">
+      <div>
+        <h1>Skills &amp; Tools</h1>
+        <p class="lead">
+          A clear overview of the technologies and concepts I practice as a Software Development student.
+        </p>
+
+        <div class="tagrow" aria-label="Skill highlights">
+          <span class="tag">UI/UX • HCI</span>
+          <span class="tag">Java • OOP</span>
+          <span class="tag">SQL • Databases</span>
+          <span class="tag">Web • HTML/CSS/JS</span>
+          <span class="tag">Testing basics</span>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="profile">
+          <img class="avatar-img" src="assets/me.jpg" alt="Sulaiman Mohammed Sulaiman Bajabaa" />
+          <div class="who">
+            <strong>Quick Summary</strong>
+            <span>UTeM • Intake 2023</span>
+          </div>
+        </div>
+
+        <hr class="sep">
+
+        <div class="help" style="color:var(--muted);">
+          I focus on writing clean, readable code, designing simple interfaces, and improving step by step through practice.
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="section-title">
+    <h2>Technical Skills</h2>
+    <p>Core areas</p>
+  </div>
+
+  <section class="grid-3">
+    <article class="project" data-tags="java oop">
+      <strong>Programming (Java)</strong>
+      <div class="meta">OOP • Classes • Inheritance • Encapsulation</div>
+      <div class="badges">
+        <span class="badge">java</span><span class="badge">oop</span><span class="badge">clean code</span>
+      </div>
+    </article>
+
+    <article class="project" data-tags="database sql">
+      <strong>Databases (SQL)</strong>
+      <div class="meta">ERD • Normalization • Queries • Constraints</div>
+      <div class="badges">
+        <span class="badge">sql</span><span class="badge">erd</span><span class="badge">3NF</span>
+      </div>
+    </article>
+
+    <article class="project" data-tags="web uiux">
+      <strong>Web & UI</strong>
+      <div class="meta">HTML • CSS • JavaScript • UI structure</div>
+      <div class="badges">
+        <span class="badge">html</span><span class="badge">css</span><span class="badge">js</span>
+      </div>
+    </article>
+  </section>
+
+  <div class="section-title" style="margin-top:26px;">
+    <h2>Tools I Use</h2>
+    <p>Daily stack</p>
+  </div>
+
+  <section class="grid-2">
+    <div class="card">
+      <strong>Development Tools</strong>
+      <ul style="margin:12px 0 0; padding-left:18px; color:var(--muted); display:grid; gap:6px;">
+        <li>VS Code (editing, extensions)</li>
+        <li>Git & GitHub (basic version control)</li>
+        <li>Browser DevTools (inspect, debug UI)</li>
+      </ul>
+    </div>
+
+    <div class="card">
+      <strong>Design & Organization</strong>
+      <ul style="margin:12px 0 0; padding-left:18px; color:var(--muted); display:grid; gap:6px;">
+        <li>Wireframing (simple layouts)</li>
+        <li>Documentation (clear notes & structure)</li>
+        <li>Team collaboration (task sharing, updates)</li>
+      </ul>
+    </div>
+  </section>
+
+  <div class="section-title" style="margin-top:26px;">
+    <h2>Currently Learning</h2>
+    <p>Focus areas</p>
+  </div>
+
+  <section class="card">
+    <div class="grid-2">
+      <div class="kpi">
+        <strong>UI</strong>
+        <span>Better layouts, spacing, accessibility</span>
+      </div>
+      <div class="kpi">
+        <strong>SQL</strong>
+        <span>Joins, constraints, query practice</span>
+      </div>
+      <div class="kpi">
+        <strong>Testing</strong>
+        <span>Validation, edge cases, correctness</span>
+      </div>
+      <div class="kpi">
+        <strong>Git</strong>
+        <span>Better commits & workflow</span>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="footer">
+  <div class="container">© <span id="year"></span> Sulaiman Mohammed Sulaiman Bajabaa</div>
+</footer>
+
+<div id="toast" class="toast" role="status" aria-live="polite"></div>
+
+<script src="assets/app.js"></script>
+<script>
+  document.getElementById("year").textContent = new Date().getFullYear();
+</script>
+</body>
+</html>

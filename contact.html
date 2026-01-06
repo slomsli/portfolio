@@ -1,0 +1,126 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>My Portfolio | Contact</title>
+  <link rel="stylesheet" href="assets/style.css" />
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+
+<header class="site-header">
+  <div class="container navbar">
+    <a class="brand" href="index.html">
+      <img class="brand-avatar" src="assets/me.jpg" alt="Sulaiman Mohammed Sulaiman Bajabaa" />
+      <div class="title">
+        <strong>Sulaiman Mohammed Sulaiman Bajabaa</strong>
+        <span>Software Development • UTeM</span>
+      </div>
+    </a>
+
+    <nav class="navlinks" aria-label="Primary">
+      <a data-nav href="index.html">Home</a>
+      <a data-nav href="about.html">About</a>
+      <a data-nav href="academics.html">Academics</a>
+      <a data-nav href="projects.html">Projects</a>
+      <a data-nav href="gallery.html">Skills</a>
+      <a data-nav href="contact.html">Contact</a>
+    </nav>
+
+    <div class="actions">
+      <button class="pill" onclick="toggleTheme()" aria-label="Toggle theme">🌓
+        <span style="font-size:12px;color:var(--muted)">Theme</span>
+      </button>
+      <a class="pill" href="assets/resume.pdf" target="_blank" rel="noreferrer">⬇️
+        <span style="font-size:12px;color:var(--muted)">Resume</span>
+      </a>
+    </div>
+  </div>
+</header>
+
+<main id="main" class="container">
+  <section class="hero">
+    <div class="hero-grid">
+      <div>
+        <h1>Contact</h1>
+        <p class="lead">Use this page to reach me for collaboration, questions, or opportunities.</p>
+
+        <!-- Optional: quick contact actions -->
+        <div class="btnrow" style="margin-top:12px;">
+          <a class="btn-ghost" href="mailto:slom3010bajaba@gmail.com">Email me</a>
+          <button class="btn-ghost" id="copyEmail" type="button" data-email="slom3010bajaba@gmail.com">
+            Copy email
+          </button>
+        </div>
+
+        
+      </div>
+
+      <div class="card">
+        <strong>Quick Note</strong>
+        <p style="color:var(--muted);margin:10px 0 0;">
+          I reply as soon as possible. Please include a clear subject and your contact details.
+        </p>
+      </div>
+    </div>
+  </section>
+  <div class="section-title">
+    <h2>Send a Message</h2>
+    <p>Simple form</p>
+  </div>
+
+  <section class="card">
+    <!-- Success message (hidden by default) -->
+    <div id="successMessage" style="display:none; text-align:center; padding:20px; background:rgba(76,175,80,0.1); border-radius:8px; border:2px solid #4CAF50;">
+      <h2 style="color:#4CAF50; margin:0 0 10px;">✓ Message Sent Successfully!</h2>
+      <p style="color:var(--muted); margin:0;">Thank you for reaching out. I'll get back to you soon.</p>
+    </div>
+
+    <!-- Form (shown by default) -->
+    <div id="formContainer">
+      <!-- IMPORTANT: id must be contactForm -->
+      <form id="contactForm" class="form" novalidate>
+      <div class="field">
+        <label for="name">Your Name</label>
+        <!-- IMPORTANT: name="name" -->
+        <input id="name" name="name" type="text" placeholder="Enter your name" required />
+      </div>
+
+      <div class="field">
+        <label for="email">Email</label>
+        <!-- IMPORTANT: name="email" -->
+        <input id="email" name="email" type="email" placeholder="Enter your email" required />
+      </div>
+
+      <div class="field">
+        <label for="message">Message</label>
+        <!-- IMPORTANT: name="message" -->
+        <textarea id="message" name="message" placeholder="Write your message..." required></textarea>
+      </div>
+
+      <input type="hidden" name="_captcha" value="false">
+
+      <div class="btnrow">
+        <button class="btn-primary" type="submit">Send</button>
+        <a class="btn-ghost" href="projects.html">View Projects</a>
+      </div>
+
+      <div class="notice">Your message will be sent directly to my email.</div>
+    </form>
+    </div>
+  </section>
+</main>
+
+<footer class="footer">
+  <div class="container">© <span id="year"></span> Sulaiman Mohammed Sulaiman Bajabaa</div>
+</footer>
+
+<div id="toast" class="toast" role="status" aria-live="polite"></div>
+
+<script src="assets/app.js"></script>
+<script>
+  document.getElementById("year").textContent = new Date().getFullYear();
+</script>
+</body>
+</html>

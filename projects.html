@@ -1,0 +1,170 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>My Portfolio | Projects</title>
+  <link rel="stylesheet" href="assets/style.css" />
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+
+<header class="site-header">
+  <div class="container navbar">
+    <a class="brand" href="index.html">
+      <img class="brand-avatar" src="assets/me.jpg" alt="Sulaiman Mohammed Sulaiman Bajabaa" />
+      <div class="title">
+        <strong>Sulaiman Mohammed Sulaiman Bajabaa</strong>
+        <span>Software Development • UTeM</span>
+      </div>
+    </a>
+
+    <nav class="navlinks" aria-label="Primary">
+      <a data-nav href="index.html">Home</a>
+      <a data-nav href="about.html">About</a>
+      <a data-nav href="academics.html">Academics</a>
+      <a data-nav href="projects.html">Projects</a>
+      <a data-nav href="gallery.html">Gallery</a>
+      <a data-nav href="contact.html">Contact</a>
+    </nav>
+
+    <div class="actions">
+      <button class="pill" onclick="toggleTheme()" aria-label="Toggle theme">🌓 <span style="font-size:12px;color:var(--muted)">Theme</span></button>
+      <a class="pill" href="assets/resume.pdf" target="_blank" rel="noreferrer">⬇️ <span style="font-size:12px;color:var(--muted)">Resume</span></a>
+    </div>
+  </div>
+</header>
+
+<main id="main" class="container">
+  <section class="hero">
+    <div class="hero-grid">
+      <div>
+        <h1>Projects &amp; Work Produced</h1>
+        <p class="lead">
+          A selection of my academic and practical work. Use search and category filters to browse quickly.
+        </p>
+      </div>
+
+      <div class="card">
+        <strong>GitHub</strong>
+        <p style="color:var(--muted);margin:10px 0 12px;">
+          Visit my GitHub profile to view repositories and code.
+        </p>
+
+        <div class="proj-links">
+          <a class="btn-mini" href="https://github.com/slomsli" target="_blank" rel="noreferrer">
+            🐙 GitHub Profile (slomsli)
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="section-title">
+    <h2>Browse</h2>
+    <p>Search + filter</p>
+  </div>
+
+  <section class="card">
+    <div class="filterbar">
+      <input id="search" class="search" placeholder="Search projects (e.g., database, UI, java, c++)..." aria-label="Search projects" />
+
+      <div class="chips" role="tablist" aria-label="Project filters">
+        <button class="chip active" data-chip="all" type="button">All</button>
+        <button class="chip" data-chip="uiux" type="button">UI/UX</button>
+        <button class="chip" data-chip="web" type="button">Web</button>
+        <button class="chip" data-chip="java" type="button">Java</button>
+        <button class="chip" data-chip="cpp" type="button">C++</button>
+        <button class="chip" data-chip="database" type="button">Database</button>
+        <button class="chip" data-chip="security" type="button">Security</button>
+      </div>
+    </div>
+
+    <hr class="sep">
+
+    <div id="projectsWrap" class="grid-2">
+
+      <!-- ✅ ADDED: DAD-Project -->
+      <article class="project" data-tags="web database">
+        <strong>DAD-Project (Web System)</strong>
+        <div class="meta">Role: Full-stack (student project) • Tools: PHP, MySQL, JavaScript</div>
+        <p style="color:var(--muted);margin:0;">
+          Developed a web-based system with database integration, basic CRUD features, and structured documentation.
+        </p>
+        <div class="badges">
+          <span class="badge">web</span><span class="badge">database</span><span class="badge">php</span>
+        </div>
+      </article>
+
+      <article class="project" data-tags="web uiux">
+        <strong>IRAS (Inspection &amp; Reporting Asset System)</strong>
+        <div class="meta">Role: UI development • Tools: React/TypeScript</div>
+        <p style="color:var(--muted);margin:0;">
+          Designed clean pages, navigation structure, and forms for asset workflows.
+        </p>
+        <div class="badges">
+          <span class="badge">web</span><span class="badge">uiux</span><span class="badge">react</span>
+        </div>
+      </article>
+
+      <article class="project" data-tags="database">
+        <strong>Database Design Mini System</strong>
+        <div class="meta">ERD • Normalization • SQL scripts</div>
+        <p style="color:var(--muted);margin:0;">
+          Built tables, relationships, and queries with proper constraints.
+        </p>
+        <div class="badges">
+          <span class="badge">database</span><span class="badge">sql</span><span class="badge">3NF</span>
+        </div>
+      </article>
+
+      <article class="project" data-tags="java">
+        <strong>OOP Java Lab Portfolio</strong>
+        <div class="meta">Classes • Encapsulation • Inheritance</div>
+        <p style="color:var(--muted);margin:0;">
+          Implemented structured solutions with readable code and validations.
+        </p>
+        <div class="badges">
+          <span class="badge">java</span><span class="badge">oop</span><span class="badge">clean</span>
+        </div>
+      </article>
+
+      <!-- ✅ ADDED: Workshop 1 -->
+      <article class="project" data-tags="cpp database">
+        <strong>MBU Instant Car Rental System (Workshop 1)</strong>
+        <div class="meta">C++ • OOP • SQL Script</div>
+        <p style="color:var(--muted);margin:0;">
+          Built a console-based car rental management system using C++ (OOP) and prepared an SQL file for database structure/data.
+        </p>
+        <div class="badges">
+          <span class="badge">c++</span><span class="badge">oop</span><span class="badge">sql</span>
+        </div>
+      </article>
+
+      <article class="project" data-tags="security web">
+        <strong>Security Practice (Encryption Demo)</strong>
+        <div class="meta">Basic encryption/decryption workflow</div>
+        <p style="color:var(--muted);margin:0;">
+          Documented steps + screenshots for lab tasks, focused on correctness.
+        </p>
+        <div class="badges">
+          <span class="badge">security</span><span class="badge">documentation</span>
+        </div>
+      </article>
+
+    </div>
+  </section>
+</main>
+
+<footer class="footer">
+  <div class="container">© <span id="year"></span> Sulaiman Mohammed Sulaiman Bajabaa</div>
+</footer>
+
+<div id="toast" class="toast" role="status" aria-live="polite"></div>
+
+<script src="assets/app.js"></script>
+<script>
+  document.getElementById("year").textContent = new Date().getFullYear();
+</script>
+</body>
+</html>

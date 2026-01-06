@@ -1,0 +1,131 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>My Portfolio | About</title>
+  <link rel="stylesheet" href="assets/style.css" />
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+
+<header class="site-header">
+  <div class="container navbar">
+    <a class="brand" href="index.html">
+      <img class="brand-avatar" src="assets/me.jpg" alt="Sulaiman Mohammed Sulaiman Bajabaa" />
+      <div class="title">
+        <strong>Sulaiman Mohammed Sulaiman Bajabaa</strong>
+        <span>Software Development • UTeM</span>
+      </div>
+    </a>
+
+    <nav class="navlinks" aria-label="Primary">
+      <a data-nav href="index.html">Home</a>
+      <a data-nav href="about.html">About</a>
+      <a data-nav href="academics.html">Academics</a>
+      <a data-nav href="projects.html">Projects</a>
+      <a data-nav href="gallery.html">Skills</a>
+      <a data-nav href="contact.html">Contact</a>
+    </nav>
+
+    <div class="actions">
+      <button class="pill" onclick="toggleTheme()" aria-label="Toggle theme">🌓 <span style="font-size:12px;color:var(--muted)">Theme</span></button>
+      <a class="pill" href="assets/resume.pdf" target="_blank" rel="noreferrer">⬇️ <span style="font-size:12px;color:var(--muted)">Resume</span></a>
+    </div>
+  </div>
+</header>
+
+<main id="main" class="container">
+
+  <section class="hero">
+    <div class="hero-grid">
+      <div>
+        <h1>About Me</h1>
+        <p class="lead">
+          I am a Software Development student at Universiti Teknikal Malaysia Melaka (UTeM). I enjoy building clean, practical, and user-friendly applications, and I like understanding how software works from both the technical and design sides.
+          <br><br>
+          I am particularly interested in UI/UX design, web development, and database systems. I enjoy working on student projects that help me improve my coding skills, problem-solving ability, and understanding of real development workflows.
+          <br><br>
+          I am a consistent learner who values clean code, clear structure, and continuous improvement. I take my work seriously and always try to deliver reliable and well-organized results.
+        </p>
+
+        <div class="tagrow">
+          <span class="tag">Hardworking</span>
+          <span class="tag">Curious learner</span>
+          <span class="tag">Team player</span>
+          <span class="tag">Detail-oriented</span>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="profile">
+          <img class="avatar-img" src="assets/me.jpg" alt="Sulaiman Mohammed Sulaiman Bajabaa" />
+          <div class="who">
+            <strong>Sulaiman Mohammed Sulaiman Bajabaa</strong>
+            <span>Student • UTeM</span>
+          </div>
+        </div>
+
+        <hr class="sep">
+
+        <div class="help">
+          <strong style="color:var(--text)">Mini Bio</strong><br>
+          • Location: Melaka, Malaysia<br>
+          • Interests: UI/UX, Web Apps, Databases
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="section-title">
+    <h2>Personal Qualities</h2>
+  </div>
+
+  <section class="grid-2">
+    <div class="card">
+      <strong>1) Hardworking</strong>
+      <p style="color:var(--muted)">
+        I stay consistent: weekly practice, early assignments, and regular revision — so I don’t rely on last-minute study.
+      </p>
+      <div class="badges"><span class="badge">Consistency</span><span class="badge">Discipline</span></div>
+    </div>
+
+    <div class="card">
+      <strong>2) Problem Solver</strong>
+      <p style="color:var(--muted)">
+        I break problems into smaller steps, test carefully, and document what I learn.
+      </p>
+      <div class="badges"><span class="badge">Debugging</span><span class="badge">Logic</span></div>
+    </div>
+
+    <div class="card">
+      <strong>3) Team Collaboration</strong>
+      <p style="color:var(--muted)">
+        I communicate clearly, align with teammates’ work, and keep my tasks updated.
+      </p>
+      <div class="badges"><span class="badge">Communication</span><span class="badge">Responsibility</span></div>
+    </div>
+
+    <div class="card">
+      <strong>4) Growth Mindset</strong>
+      <p style="color:var(--muted)">
+        I ask questions when I’m stuck and improve based on feedback. I treat mistakes like learning checkpoints.
+      </p>
+      <div class="badges"><span class="badge">Learning</span><span class="badge">Self-improvement</span></div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="footer">
+  <div class="container">© <span id="year"></span> Sulaiman Mohammed Sulaiman Bajabaa</div>
+</footer>
+
+<div id="toast" class="toast" role="status" aria-live="polite"></div>
+
+<script src="assets/app.js"></script>
+<script>
+  document.getElementById("year").textContent = new Date().getFullYear();
+</script>
+</body>
+</html>
