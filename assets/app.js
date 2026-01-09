@@ -1,9 +1,6 @@
-// =====================
-// Portfolio JS (Theme + Filters + Modal + Cursor Animations)
-// FIXED: Buddy eyes will NOT disappear on click
-// =====================
 
-// Theme init
+
+
 (function initTheme(){
   const saved = localStorage.getItem("theme");
   if (saved) document.body.setAttribute("data-theme", saved);
@@ -17,7 +14,7 @@ function toggleTheme(){
   toast(`Theme: ${next}`);
 }
 
-// Active nav highlight
+
 (function setActiveLink(){
   const path = location.pathname.split("/").pop() || "index.html";
   document.querySelectorAll("[data-nav]").forEach(a => {
@@ -26,7 +23,7 @@ function toggleTheme(){
   });
 })();
 
-// Toast helper
+
 function toast(msg){
   const t = document.getElementById("toast");
   if (!t) return;
@@ -35,7 +32,7 @@ function toast(msg){
   setTimeout(() => t.classList.remove("show"), 1800);
 }
 
-// Keyboard navigation (Alt + 1..6)
+
 (function keyboardNav(){
   const map = {
     "1": "index.html",
@@ -52,9 +49,7 @@ function toast(msg){
   });
 })();
 
-// =====================
-// Cursor Glow (follows mouse smoothly)
-// =====================
+
 (function cursorGlow(){
   const reduce = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
   if (reduce) return;
@@ -84,17 +79,12 @@ function toast(msg){
   animate();
 })();
 
-// =====================
-// Buddy Eyes (looks at mouse)
-// FIXED: Click makes it bounce (NOT disappear)
-// Optional: Right-click can hide it
-// =====================
+
 (function buddyEyes(){
   const reduce = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
   if (reduce) return;
 
-  // If you previously hid it before, clear it automatically
-  // so you don't get confused.
+
   if (localStorage.getItem("buddyOff") === "1") {
     localStorage.removeItem("buddyOff");
   }
@@ -105,7 +95,7 @@ function toast(msg){
   buddy.title = "Buddy eyes";
 
   buddy.innerHTML = `
-    <div class="hint">I’m watching your cursor 👀 (left click = bounce)</div>
+    <div class="hint">I’m watching you</div>
     <div class="eye"><div class="pupil" data-pupil="1"></div></div>
     <div class="eye"><div class="pupil" data-pupil="2"></div></div>
   `;
@@ -130,7 +120,7 @@ function toast(msg){
     const dx = mouseX - cx;
     const dy = mouseY - cy;
 
-    const max = 6; // max pupil movement px
+    const max = 6; 
     const angle = Math.atan2(dy, dx);
     const dist = Math.min(max, Math.hypot(dx, dy) / 25);
 
@@ -147,15 +137,15 @@ function toast(msg){
   }
   loop();
 
-  // Left click = bounce + toast
+
   buddy.addEventListener("click", () => {
     buddy.classList.remove("pop");
-    void buddy.offsetWidth; // restart animation
+    void buddy.offsetWidth; 
     buddy.classList.add("pop");
     toast("👀 Hey!");
   });
 
-  // OPTIONAL: Right click hides it (if you want)
+
   buddy.addEventListener("contextmenu", (e) => {
     e.preventDefault();
     localStorage.setItem("buddyOff", "1");
@@ -164,9 +154,7 @@ function toast(msg){
   });
 })();
 
-// =====================
-// Projects filter/search
-// =====================
+
 function setupProjects(){
   const wrap = document.getElementById("projectsWrap");
   if (!wrap) return;
@@ -200,9 +188,7 @@ function setupProjects(){
 }
 setupProjects();
 
-// =====================
-// Gallery modal
-// =====================
+
 function setupGallery(){
   const modal = document.getElementById("modal");
   if (!modal) return;
@@ -248,9 +234,7 @@ function setupGallery(){
 }
 setupGallery();
 
-// =====================
-// Contact form validation
-// =====================
+
 function setupContact(){
   const form = document.getElementById("contactForm");
   if (!form) return;
@@ -272,14 +256,14 @@ function setupContact(){
     }
 
     try {
-      // Send form data to FormSubmit in background
+      
       const formData = new FormData(form);
       await fetch("https://formsubmit.co/slom3010bajaba@gmail.com", {
         method: "POST",
         body: formData
       });
 
-      // Show success message
+     
       const successMsg = document.getElementById("successMessage");
       const formContainer = document.getElementById("formContainer");
       if (successMsg && formContainer) {
@@ -306,3 +290,63 @@ function setupContact(){
   });
 }
 setupContact();
+
+(function navFace(){
+  const nav = document.querySelector(".navlinks");
+  if (!nav) return;
+
+  const FACE_SRC = "assets/me.jpg";
+
+  const face = document.createElement("div");
+  face.className = "nav-face"; 
+  face.setAttribute("aria-hidden", "true");
+  face.innerHTML = `<img src="${FACE_SRC}" alt="">`;
+  nav.appendChild(face);
+
+  const links = Array.from(nav.querySelectorAll("a[data-nav]"));
+
+  function setX(link){
+    if (!link) return;
+    const navRect = nav.getBoundingClientRect();
+    const rect = link.getBoundingClientRect();
+    const x = (rect.left - navRect.left) + (rect.width / 2);
+    face.style.setProperty("--x", `${x}px`);
+  }
+
+  function jump(){
+    face.classList.remove("jump");
+    void face.offsetWidth;
+    face.classList.add("jump");
+  }
+
+
+  const active = nav.querySelector("a.active") || links[0];
+  setX(active);
+
+
+  requestAnimationFrame(() => {
+    face.classList.add("ready");
+  });
+
+  
+  links.forEach(a => {
+    a.addEventListener("click", (e) => {
+      if (e.metaKey || e.ctrlKey || e.shiftKey || e.altKey || e.button !== 0) return;
+
+      const href = a.getAttribute("href") || "";
+      if (href.startsWith("http") || href.startsWith("#")) return;
+
+      e.preventDefault();
+      setX(a);
+      jump();
+      setTimeout(() => location.href = href, 170);
+    });
+  });
+
+  // Keep aligned on resize
+  window.addEventListener("resize", () => {
+    const act = nav.querySelector("a.active") || links[0];
+    setX(act);
+  }, { passive: true });
+})();
+
