@@ -29,8 +29,8 @@
     </nav>
 
     <div class="actions">
-      <button class="pill" onclick="toggleTheme()" aria-label="Toggle theme">🌓
-        <span style="font-size:12px;color:var(--muted)">Theme</span>
+      <button class="pill" onclick="toggleTheme()" aria-label="Toggle theme">
+        <span class="theme-icon">🌙</span> <span style="font-size:12px;color:var(--muted)">Theme</span>
       </button>
       <a class="pill" href="assets/resume.pdf" target="_blank" rel="noreferrer">⬇️
         <span style="font-size:12px;color:var(--muted)">Resume</span>
@@ -40,74 +40,116 @@
 </header>
 
 <main id="main" class="container">
+  <!-- Hero Section -->
   <section class="hero">
     <div class="hero-grid">
-      <div>
-        <h1>Contact</h1>
-        <p class="lead">Use this page to reach me for collaboration, questions, or opportunities.</p>
+      <div class="hero-left">
+        <p class="hero-kicker">Get In Touch 💬</p>
+        <h1 class="hero-title">Let's <span class="hero-name">Connect</span></h1>
+        <p class="hero-desc">
+          Have a project idea, want to collaborate, or just want to say hello? 
+          I'd love to hear from you. Drop me a message and I'll get back to you within 24 hours.
+        </p>
 
-        <!-- Optional: quick contact actions -->
-        <div class="btnrow" style="margin-top:12px;">
-          <a class="btn-ghost" href="mailto:slom3010bajaba@gmail.com">Email me</a>
-          <button class="btn-ghost" id="copyEmail" type="button" data-email="slom3010bajaba@gmail.com">
-            Copy email
-          </button>
+        <div class="contact-quick-links">
+          <a href="mailto:slom3010bajaba@gmail.com" class="contact-link-btn">
+            <span class="contact-link-icon">📧</span>
+            <span>slom3010bajaba@gmail.com</span>
+          </a>
+         
+          <a href="https://github.com/slomsli" target="_blank" rel="noreferrer" class="contact-link-btn">
+            <span class="contact-link-icon">🐙</span>
+            <span>@slomsli</span>
+          </a>
         </div>
-
-        
       </div>
 
-      <div class="card">
-        <strong>Quick Note</strong>
-        <p style="color:var(--muted);margin:10px 0 0;">
-          I reply as soon as possible. Please include a clear subject and your contact details.
-        </p>
+      <div class="contact-stats-card">
+        <div class="contact-stat">
+          <span class="contact-stat-icon">⚡</span>
+          <div>
+            <strong>Fast Response</strong>
+            <p>Usually within 24 hours</p>
+          </div>
+        </div>
+        <div class="contact-stat">
+          <span class="contact-stat-icon">🤝</span>
+          <div>
+            <strong>Open to Collaborate</strong>
+            <p>Projects & learning opportunities</p>
+          </div>
+        </div>
+        <div class="contact-stat">
+          <span class="contact-stat-icon">💼</span>
+          <div>
+            <strong>Available for Work</strong>
+            <p>Internships & freelance</p>
+          </div>
+        </div>
       </div>
     </div>
   </section>
+
   <div class="section-title">
-    <h2>Send a Message</h2>
-    
+    <h2>Send Me a Message</h2>
+    <p>Fill in the form below and I'll get back to you soon</p>
   </div>
 
-  <section class="card">
-    <!-- Success message (hidden by default) -->
-    <div id="successMessage" style="display:none; text-align:center; padding:20px; background:rgba(76,175,80,0.1); border-radius:8px; border:2px solid #4CAF50;">
-      <h2 style="color:#4CAF50; margin:0 0 10px;">✓ Message Sent Successfully!</h2>
-      <p style="color:var(--muted); margin:0;">Thank you for reaching out. I'll get back to you soon.</p>
+  <section class="contact-form-section">
+    <div class="contact-form-card">
+      <!-- Success message (hidden by default) -->
+      <div id="successMessage" style="display:none; text-align:center; padding:40px 20px;">
+        <div style="font-size:60px;margin-bottom:16px;">✅</div>
+        <h2 style="color:#4CAF50; margin:0 0 12px; font-size:24px;">Message Sent Successfully!</h2>
+        <p style="color:var(--muted); margin:0 0 20px;">Thank you for reaching out. I'll get back to you within 24 hours.</p>
+        <a href="index.html" class="btn-primary">Back to Home</a>
+      </div>
+
+      <!-- Form Container (shown by default) -->
+      <div id="formContainer">
+        <form id="contactForm" class="contact-form" novalidate>
+          <div class="form-row">
+            <div class="field">
+              <label for="name">Your Name *</label>
+              <input type="text" id="name" name="name" placeholder="Enter your full name" required />
+            </div>
+            <div class="field">
+              <label for="email">Your Email *</label>
+              <input type="email" id="email" name="email" placeholder="you@example.com" required />
+            </div>
+          </div>
+
+          <div class="field">
+            <label for="message">Your Message *</label>
+            <textarea id="message" name="message" rows="6" placeholder="Tell me about your project or question..." required></textarea>
+          </div>
+
+          <input type="hidden" name="_captcha" value="false">
+
+          <div class="form-actions">
+            <button type="submit" class="btn-primary contact-submit-btn">
+              <span class="btn-text">Send Message</span>
+              <span class="btn-icon">→</span>
+            </button>
+            <p class="form-note">✨ Your message will be sent directly to my email</p>
+          </div>
+        </form>
+      </div>
     </div>
 
-    <!-- Form (shown by default) -->
-    <div id="formContainer">
-      <!-- IMPORTANT: id must be contactForm -->
-      <form id="contactForm" class="form" novalidate>
-      <div class="field">
-        <label for="name">Your Name</label>
-        <!-- IMPORTANT: name="name" -->
-        <input id="name" name="name" type="text" placeholder="Enter your name" required />
+    <div class="contact-info-sidebar">
+      <div class="info-card">
+        <h3>📍 Location</h3>
+        <p>Malaysia (UTeM)</p>
       </div>
-
-      <div class="field">
-        <label for="email">Email</label>
-        <!-- IMPORTANT: name="email" -->
-        <input id="email" name="email" type="email" placeholder="Enter your email" required />
+      <div class="info-card">
+        <h3>⏰ Timezone</h3>
+        <p>GMT+8 (Malaysia Time)</p>
       </div>
-
-      <div class="field">
-        <label for="message">Message</label>
-        <!-- IMPORTANT: name="message" -->
-        <textarea id="message" name="message" placeholder="Write your message..." required></textarea>
+      <div class="info-card">
+        <h3>🗓️ Availability</h3>
+        <p>Weekdays: Active<br>Weekends: Limited</p>
       </div>
-
-      <input type="hidden" name="_captcha" value="false">
-
-      <div class="btnrow">
-        <button class="btn-primary" type="submit">Send</button>
-        <a class="btn-ghost" href="projects.html">View Projects</a>
-      </div>
-
-      <div class="notice">Your message will be sent directly to my email.</div>
-    </form>
     </div>
   </section>
 </main>

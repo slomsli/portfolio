@@ -30,7 +30,7 @@
 
     <div class="actions">
       <button class="pill" onclick="toggleTheme()" aria-label="Toggle theme">
-        🌓 <span style="font-size:12px;color:var(--muted)">Theme</span>
+        <span class="theme-icon">🌙</span> <span style="font-size:12px;color:var(--muted)">Theme</span>
       </button>
       <a class="pill" href="assets/resume.pdf" target="_blank" rel="noreferrer">
         ⬇️ <span style="font-size:12px;color:var(--muted)">Resume</span>
@@ -85,76 +85,83 @@
     <p>Primary → Secondary → High School → University</p>
   </div>
 
-  <div class="timeline">
-    <div class="t-item">
-      <div class="when">2011 – 2016</div>
-      <div class="what">
-        <strong>Abdullah bin Arqam Primary School</strong>
-        <span>Primary School • 6 years</span>
+    <div class="school-cards">
+      <div class="school-card animated-card">
+        <img src="assets\althgar.jpg" alt="Althgar Primary School Logo" class="school-logo">
+        <div>
+          <h3>Althgar Primary School</h3>
+          <span class="school-years">2011 – 2016</span>
+          <p>Primary School • 6 years</p>
+        </div>
       </div>
-    </div>
 
-    <div class="t-item">
-      <div class="when">2017 – 2019</div>
-      <div class="what">
-        <strong>Al-Thaghar Secondary School</strong>
-        <span>Secondary School • 3 years</span>
+      <div class="school-card animated-card">
+        <img src="assets\althgar.jpg" alt="Al-Thaghar Secondary School Logo" class="school-logo">
+        <div>
+          <h3>Al-Thaghar Secondary School</h3>
+          <span class="school-years">2017 – 2019</span>
+          <p>Secondary School • 3 years</p>
+        </div>
       </div>
-    </div>
 
-    <div class="t-item">
-      <div class="when">2020 – 2022</div>
-      <div class="what">
-        <strong>Al-Thaghar High School</strong>
-        <span>High School • 3 years (Graduated in 2022)</span>
+      <div class="school-card animated-card">
+        <img src="assets\althgar.jpg" alt="Al-Thaghar High School Logo" class="school-logo">
+        <div>
+          <h3>Al-Thaghar High School</h3>
+          <span class="school-years">2020 – 2022</span>
+          <p>High School • 3 years (Graduated in 2022)</p>
+        </div>
       </div>
-    </div>
 
-    <div class="t-item">
-      <div class="when">2023 – Present</div>
-      <div class="what">
-        <strong>Universiti Teknikal Malaysia Melaka (UTeM)</strong>
-        <span>Software Development • Intake 2023</span>
+      <div class="school-card animated-card utem-card">
+        <img src="assets/schools/utem.png" alt="UTeM Logo" class="school-logo">
+        <div>
+          <h3>Universiti Teknikal Malaysia Melaka (UTeM)</h3>
+          <span class="school-years">2023 – Present</span>
+          <p>Software Development • Intake 2023</p>
+        </div>
       </div>
     </div>
-  </div>
 
   <!-- COURSES -->
   <div class="section-title" style="margin-top:26px;">
     <h2>Relevant Courses</h2>
-    <p>My strongest subjects</p>
+    <p>My strongest subjects at UTeM</p>
   </div>
 
-  <section class="grid-3">
-    <article class="project" data-tags="hci uiux">
-      <strong>Human-Computer Interaction</strong>
-      <div class="meta">Usability, design principles, prototypes.</div>
+  <section class="courses-grid">
+    <div class="course-card">
+      <div class="course-icon">🎨</div>
+      <h3>Human-Computer Interaction</h3>
+      <p>Usability testing, design principles, wireframing, and interactive prototypes for better user experiences.</p>
       <div class="badges">
         <span class="badge">UI</span>
         <span class="badge">UX</span>
         <span class="badge">HCI</span>
       </div>
-    </article>
+    </div>
 
-    <article class="project" data-tags="java oop">
-      <strong>Object-Oriented Programming</strong>
-      <div class="meta">Classes, inheritance, design patterns.</div>
+    <div class="course-card">
+      <div class="course-icon">☕</div>
+      <h3>Object-Oriented Programming</h3>
+      <p>Classes, inheritance, polymorphism, encapsulation, and design patterns using Java.</p>
       <div class="badges">
         <span class="badge">Java</span>
         <span class="badge">OOP</span>
         <span class="badge">Clean Code</span>
       </div>
-    </article>
+    </div>
 
-    <article class="project" data-tags="database sql">
-      <strong>Database Systems</strong>
-      <div class="meta">ERD, normalization, SQL queries.</div>
+    <div class="course-card">
+      <div class="course-icon">🗄️</div>
+      <h3>Database Systems</h3>
+      <p>ERD design, normalization (1NF-3NF), SQL queries, joins, and database optimization techniques.</p>
       <div class="badges">
         <span class="badge">SQL</span>
         <span class="badge">ERD</span>
         <span class="badge">3NF</span>
       </div>
-    </article>
+    </div>
   </section>
 </main>
 

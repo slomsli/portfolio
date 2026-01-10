@@ -30,7 +30,7 @@
 
     <div class="actions">
       <button class="pill" onclick="toggleTheme()" aria-label="Toggle theme">
-        🌓 <span style="font-size:12px;color:var(--muted)">Theme</span>
+        <span class="theme-icon">🌙</span> <span style="font-size:12px;color:var(--muted)">Theme</span>
       </button>
       <a class="pill" href="assets/resume.pdf" target="_blank" rel="noreferrer">
         ⬇️ <span style="font-size:12px;color:var(--muted)">Resume</span>
@@ -77,32 +77,75 @@
 
   <div class="section-title">
     <h2>Technical Skills</h2>
+    <p>Hover to see proficiency level</p>
   </div>
 
-  <section class="grid-3">
-    <article class="project" data-tags="java oop">
-      <strong>Programming (Java)</strong>
-      <div class="meta">OOP • Classes • Inheritance • Encapsulation</div>
+  <section class="skills-grid">
+    <div class="skill-card">
+      <div class="skill-icon">☕</div>
+      <h3>Programming (Java)</h3>
+      <div class="skill-items">
+        <div class="skill-item">
+          <span>Object-Oriented Programming</span>
+          <div class="skill-bar"><div class="skill-fill" style="width: 85%"></div></div>
+        </div>
+        <div class="skill-item">
+          <span>Classes & Inheritance</span>
+          <div class="skill-bar"><div class="skill-fill" style="width: 80%"></div></div>
+        </div>
+        <div class="skill-item">
+          <span>Clean Code Practices</span>
+          <div class="skill-bar"><div class="skill-fill" style="width: 75%"></div></div>
+        </div>
+      </div>
       <div class="badges">
         <span class="badge">java</span><span class="badge">oop</span><span class="badge">clean code</span>
       </div>
-    </article>
+    </div>
 
-    <article class="project" data-tags="database sql">
-      <strong>Databases (SQL)</strong>
-      <div class="meta">ERD • Normalization • Queries • Constraints</div>
+    <div class="skill-card">
+      <div class="skill-icon">🗄️</div>
+      <h3>Databases (SQL)</h3>
+      <div class="skill-items">
+        <div class="skill-item">
+          <span>ERD & Normalization</span>
+          <div class="skill-bar"><div class="skill-fill" style="width: 82%"></div></div>
+        </div>
+        <div class="skill-item">
+          <span>SQL Queries & Joins</span>
+          <div class="skill-bar"><div class="skill-fill" style="width: 78%"></div></div>
+        </div>
+        <div class="skill-item">
+          <span>Database Design</span>
+          <div class="skill-bar"><div class="skill-fill" style="width: 80%"></div></div>
+        </div>
+      </div>
       <div class="badges">
         <span class="badge">sql</span><span class="badge">erd</span><span class="badge">3NF</span>
       </div>
-    </article>
+    </div>
 
-    <article class="project" data-tags="web uiux">
-      <strong>Web & UI</strong>
-      <div class="meta">HTML • CSS • JavaScript • UI structure</div>
+    <div class="skill-card">
+      <div class="skill-icon">🌐</div>
+      <h3>Web Development</h3>
+      <div class="skill-items">
+        <div class="skill-item">
+          <span>HTML & CSS</span>
+          <div class="skill-bar"><div class="skill-fill" style="width: 88%"></div></div>
+        </div>
+        <div class="skill-item">
+          <span>JavaScript</span>
+          <div class="skill-bar"><div class="skill-fill" style="width: 75%"></div></div>
+        </div>
+        <div class="skill-item">
+          <span>UI/UX Design</span>
+          <div class="skill-bar"><div class="skill-fill" style="width: 80%"></div></div>
+        </div>
+      </div>
       <div class="badges">
         <span class="badge">html</span><span class="badge">css</span><span class="badge">js</span>
       </div>
-    </article>
+    </div>
   </section>
 
   <div class="section-title" style="margin-top:26px;">

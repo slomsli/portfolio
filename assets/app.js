@@ -4,14 +4,59 @@
 (function initTheme(){
   const saved = localStorage.getItem("theme");
   if (saved) document.body.setAttribute("data-theme", saved);
+  updateThemeIcon();
 })();
+
+function updateThemeIcon(){
+  const current = document.body.getAttribute("data-theme") || "dark";
+  const themeBtn = document.querySelector('.pill[onclick*="toggleTheme"]');
+  if (!themeBtn) return;
+  
+  const icon = current === "dark" ? "🌙" : "☀️";
+  themeBtn.innerHTML = `<span class="theme-icon">${icon}</span> <span style="font-size:12px;color:var(--muted)">Theme</span>`;
+}
 
 function toggleTheme(){
   const current = document.body.getAttribute("data-theme") || "dark";
   const next = current === "dark" ? "light" : "dark";
   document.body.setAttribute("data-theme", next);
   localStorage.setItem("theme", next);
-  toast(`Theme: ${next}`);
+  
+  // Trigger animation
+  const themeBtn = document.querySelector('.pill[onclick*="toggleTheme"]');
+  if (themeBtn) {
+    const icon = themeBtn.querySelector(".theme-icon");
+    if (icon) {
+      icon.style.animation = "none";
+      setTimeout(() => {
+        icon.style.animation = "";
+        icon.textContent = next === "light" ? "☀️" : "🌙";
+      }, 10);
+    }
+  }
+  
+  toast(`Switched to ${next} mode ✨`);
+}
+
+// Roadmap scroll animation
+if (typeof IntersectionObserver !== 'undefined') {
+  const roadmapObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.style.opacity = '1';
+        entry.target.style.transform = 'translateY(0)';
+      }
+    });
+  }, {
+    threshold: 0.2,
+    rootMargin: '0px 0px -100px 0px'
+  });
+
+  document.addEventListener('DOMContentLoaded', () => {
+    document.querySelectorAll('.roadmap-node').forEach(node => {
+      roadmapObserver.observe(node);
+    });
+  });
 }
 
 
@@ -348,5 +393,46 @@ setupContact();
     const act = nav.querySelector("a.active") || links[0];
     setX(act);
   }, { passive: true });
+})();
+
+
+// Roadmap scroll animation with Intersection Observer
+if (typeof IntersectionObserver !== 'undefined') {
+  const roadmapObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.style.opacity = '1';
+        entry.target.style.transform = 'translateY(0)';
+      }
+    });
+  }, {
+    threshold: 0.2,
+    rootMargin: '0px 0px -100px 0px'
+  });
+
+  document.addEventListener('DOMContentLoaded', () => {
+    document.querySelectorAll('.roadmap-node').forEach(node => {
+      roadmapObserver.observe(node);
+    });
+  });
+}
+
+
+/* Scroll Animation for Stats */
+(function initScrollAnimations(){
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.style.opacity = "1";
+        entry.target.style.transform = "translateY(0)";
+      }
+    });
+  }, { threshold: 0.1 });
+
+  document.querySelectorAll(".stat-box, .project-card").forEach(el => {
+    el.style.opacity = "0";
+    el.style.transform = "translateY(20px)";
+    observer.observe(el);
+  });
 })();
 

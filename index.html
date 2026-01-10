@@ -30,7 +30,7 @@
 
     <div class="actions">
       <button class="pill" onclick="toggleTheme()" aria-label="Toggle theme">
-        🌓 <span style="font-size:12px;color:var(--muted)">Theme</span>
+        <span class="theme-icon">🌙</span> <span style="font-size:12px;color:var(--muted)">Theme</span>
       </button>
       <a class="pill" href="assets/resume.pdf" target="_blank" rel="noreferrer">
         ⬇️ <span style="font-size:12px;color:var(--muted)">Resume</span>
@@ -42,95 +42,108 @@
 <main id="main" class="container">
   <section class="hero">
     <div class="hero-grid">
-      <div>
-        <h1>Hi, I’m <span style="background:linear-gradient(90deg,var(--accent),var(--accent2),var(--accent3)); -webkit-background-clip:text; background-clip:text; color:transparent;">Sulaiman Mohammed Sulaiman Bajabaa</span>.</h1>
-        <p class="lead">
-          I build clean interfaces, reliable systems, and student projects that show real progress.
-          This portfolio highlights my academic journey, my best work, and the qualities I bring to a team.
+      <div class="hero-left">
+        <p class="hero-kicker">Hello there! </p>
+
+        <h1 class="hero-title">
+          I'm <span class="hero-name">Sulaiman</span> —<br>
+
+
+          a <span class=>Software Development Student</span>.
+        </h1>
+
+        <p class="hero-desc">
+          Passionate about creating exceptional digital experiences. I specialize in building 
+          intuitive user interfaces, designing robust databases, and applying HCI principles 
+          to solve real-world problems. Currently pursuing Software Engineering at UTeM.
         </p>
 
-        <div class="btnrow">
-          <a class="btn-primary" href="projects.html">View Projects</a>
-          <a class="btn-ghost" href="contact.html">Contact Me</a>
-        </div>
-
-        <div class="tagrow" aria-label="Highlights">
-          <span class="tag">UI/UX • HCI principles</span>
-          <span class="tag">Java • C++ • Web</span>
-          <span class="tag">Databases • SQL</span>
-          <span class="tag">Team projects</span>
-          <span class="tag">Full-stack development</span>
+        <div class="hero-cta">
+          <a class="btn-primary" href="assets/resume.pdf" target="_blank" rel="noreferrer">Get My Resume</a>
+          <a class="btn-ghost" href="projects.html">View My Projects</a>
         </div>
       </div>
 
-      <div class="card">
-        <div class="profile">
-          <img class="avatar-img" src="assets/me.jpg" alt="Sulaiman Mohammed Sulaiman Bajabaa" />
-          <div class="who">
-            <strong>Quick Profile</strong>
-            <span>Student | UTeM</span>
-          </div>
-        </div>
-
-        <hr class="sep">
-
-        <div class="grid-2">
-          <div class="kpi">
-            <strong>6+</strong>
-            <span>Portfolio pages</span>
-          </div>
-          <div class="kpi">
-            <strong>10+</strong>
-            <span>Works / artifacts</span>
-          </div>
-          <div class="kpi">
-            <strong>3</strong>
-            <span>Core skills</span>
-          </div>
-          <div class="kpi">
-            <strong>1</strong>
-            <span>Strong story</span>
-          </div>
-        </div>
-
-        <hr class="sep">
-
-        <p style="margin:0;color:var(--muted);font-size:13px;">
-          Explore the site using the navigation bar. Each page focuses on a different part of my portfolio.
-        </p>
+      <div class="hero-image-frame">
+        <img src="assets/me.jpg" alt="Sulaiman Mohammed Sulaiman Bajabaa" />
       </div>
     </div>
   </section>
 
   <div class="section-title">
     <h2>Featured Work</h2>
-    
+    <p>Explore my recent projects and achievements</p>
   </div>
 
   <section class="grid-3">
-    <article class="project" data-tags="web uiux hci">
-      <strong>IRAS UI (React)</strong>
-      <div class="meta">Dashboard • Forms • Clean layout</div>
-      <div class="badges">
-        <span class="badge">UI</span><span class="badge">HCI</span><span class="badge">React</span>
+    <article class="project project-card" data-tags="web uiux hci">
+      <div class="project-header">
+        <strong>IRAS UI Dashboard</strong>
+        
       </div>
+      <p class="project-subtitle">Responsive React Dashboard with HCI Principles</p>
+      <p class="project-description">
+        Built an interactive dashboard with React, featuring real-time data visualization, 
+        user-friendly forms, and accessibility standards compliance.
+      </p>
+      <div class="badges">
+        <span class="badge">React</span><span class="badge">UI/UX</span><span class="badge">HCI</span><span class="badge">Responsive</span>
+      </div>
+      <a href="projects.html#iras" class="project-link">View Details →</a>
     </article>
 
-    <article class="project" data-tags="java oop">
-      <strong>OOP Java Practice</strong>
-      <div class="meta">Classes • Inheritance • Encapsulation</div>
-      <div class="badges">
-        <span class="badge">Java</span><span class="badge">OOP</span><span class="badge">Clean code</span>
+    <article class="project project-card" data-tags="java oop">
+      <div class="project-header">
+        <strong>OOP Java Portfolio</strong>
+       
       </div>
+      <p class="project-subtitle">Object-Oriented Design in Java</p>
+      <p class="project-description">
+        A comprehensive Java application demonstrating solid OOP principles: classes, 
+        inheritance, polymorphism, and encapsulation with clean code architecture.
+      </p>
+      <div class="badges">
+        <span class="badge">Java</span><span class="badge">OOP</span><span class="badge">Clean Code</span>
+      </div>
+      <a href="projects.html#oop" class="project-link">View Details →</a>
     </article>
 
-    <article class="project" data-tags="database sql">
-      <strong>Database Design</strong>
-      <div class="meta">ERD • Normalization • Queries</div>
+    <article class="project project-card" data-tags="database sql">
+      <div class="project-header">
+        <strong>Database Design System</strong>
+        
+      </div>
+      <p class="project-subtitle">ERD • Normalization • SQL Scripts</p>
+      <p class="project-description">
+        Designed a normalized relational database with proper ERD, 
+        complex queries, and optimization techniques for efficient data retrieval.
+      </p>
       <div class="badges">
         <span class="badge">SQL</span><span class="badge">ERD</span><span class="badge">3NF</span>
       </div>
+      <a href="projects.html#database" class="project-link">View Details →</a>
     </article>
+  </section>
+
+  <section class="stats-section">
+    <div class="stats-grid">
+      <div class="stat-box">
+        <div class="stat-number">6+</div>
+        <div class="stat-label">Projects Completed</div>
+      </div>
+      <div class="stat-box">
+        <div class="stat-number">3</div>
+        <div class="stat-label">Main Tech Stacks</div>
+      </div>
+      <div class="stat-box">
+        <div class="stat-number">100%</div>
+        <div class="stat-label">Code Quality Focus</div>
+      </div>
+      <div class="stat-box">
+        <div class="stat-number">2.5</div>
+        <div class="stat-label">Years Learning Dev</div>
+      </div>
+    </div>
   </section>
 </main>
 
