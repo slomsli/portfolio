@@ -99,15 +99,15 @@
     <div class="contact-form-card">
       <!-- Success message (hidden by default) -->
       <div id="successMessage" style="display:none; text-align:center; padding:40px 20px;">
-        <div style="font-size:60px;margin-bottom:16px;">✅</div>
-        <h2 style="color:#4CAF50; margin:0 0 12px; font-size:24px;">Message Sent Successfully!</h2>
-        <p style="color:var(--muted); margin:0 0 20px;">Thank you for reaching out. I'll get back to you within 24 hours.</p>
+        <div style="font-size:60px;margin-bottom:16px;">📧</div>
+        <h2 style="color:#4CAF50; margin:0 0 12px; font-size:24px;">Email App Opened</h2>
+        <p style="color:var(--muted); margin:0 0 20px;">Please review the email and press send from your email app.</p>
         <a href="index.html" class="btn-primary">Back to Home</a>
       </div>
 
       <!-- Form Container (shown by default) -->
       <div id="formContainer">
-        <form id="contactForm" class="contact-form" novalidate>
+        <form id="contactForm" class="contact-form" action="mailto:slom3010bajaba@gmail.com" method="POST" enctype="text/plain" novalidate>
           <div class="form-row">
             <div class="field">
               <label for="name">Your Name *</label>
@@ -124,14 +124,12 @@
             <textarea id="message" name="message" rows="6" placeholder="Tell me about your project or question..." required></textarea>
           </div>
 
-          <input type="hidden" name="_captcha" value="false">
-
           <div class="form-actions">
             <button type="submit" class="btn-primary contact-submit-btn">
               <span class="btn-text">Send Message</span>
               <span class="btn-icon">→</span>
             </button>
-            <p class="form-note">✨ Your message will be sent directly to my email</p>
+            <p class="form-note">This opens your email app with the message ready to send</p>
           </div>
         </form>
       </div>

@@ -1,27 +1,27 @@
 
 
 
-(function initTheme(){
+(function initTheme() {
   const saved = localStorage.getItem("theme");
   if (saved) document.body.setAttribute("data-theme", saved);
   updateThemeIcon();
 })();
 
-function updateThemeIcon(){
+function updateThemeIcon() {
   const current = document.body.getAttribute("data-theme") || "dark";
   const themeBtn = document.querySelector('.pill[onclick*="toggleTheme"]');
   if (!themeBtn) return;
-  
+
   const icon = current === "dark" ? "🌙" : "☀️";
   themeBtn.innerHTML = `<span class="theme-icon">${icon}</span> <span style="font-size:12px;color:var(--muted)">Theme</span>`;
 }
 
-function toggleTheme(){
+function toggleTheme() {
   const current = document.body.getAttribute("data-theme") || "dark";
   const next = current === "dark" ? "light" : "dark";
   document.body.setAttribute("data-theme", next);
   localStorage.setItem("theme", next);
-  
+
   // Trigger animation
   const themeBtn = document.querySelector('.pill[onclick*="toggleTheme"]');
   if (themeBtn) {
@@ -34,7 +34,7 @@ function toggleTheme(){
       }, 10);
     }
   }
-  
+
   toast(`Switched to ${next} mode ✨`);
 }
 
@@ -60,7 +60,7 @@ if (typeof IntersectionObserver !== 'undefined') {
 }
 
 
-(function setActiveLink(){
+(function setActiveLink() {
   const path = location.pathname.split("/").pop() || "index.html";
   document.querySelectorAll("[data-nav]").forEach(a => {
     const href = a.getAttribute("href");
@@ -69,7 +69,7 @@ if (typeof IntersectionObserver !== 'undefined') {
 })();
 
 
-function toast(msg){
+function toast(msg) {
   const t = document.getElementById("toast");
   if (!t) return;
   t.textContent = msg;
@@ -78,7 +78,7 @@ function toast(msg){
 }
 
 
-(function keyboardNav(){
+(function keyboardNav() {
   const map = {
     "1": "index.html",
     "2": "about.html",
@@ -95,7 +95,7 @@ function toast(msg){
 })();
 
 
-(function cursorGlow(){
+(function cursorGlow() {
   const reduce = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
   if (reduce) return;
 
@@ -114,7 +114,7 @@ function toast(msg){
     targetY = e.clientY;
   }, { passive: true });
 
-  function animate(){
+  function animate() {
     x = lerp(x, targetX, 0.14);
     y = lerp(y, targetY, 0.14);
     glow.style.left = x + "px";
@@ -125,7 +125,7 @@ function toast(msg){
 })();
 
 
-(function buddyEyes(){
+(function buddyEyes() {
   const reduce = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
   if (reduce) return;
 
@@ -157,7 +157,7 @@ function toast(msg){
     mouseY = e.clientY;
   }, { passive: true });
 
-  function movePupil(eyeEl, pupilEl){
+  function movePupil(eyeEl, pupilEl) {
     const rect = eyeEl.getBoundingClientRect();
     const cx = rect.left + rect.width / 2;
     const cy = rect.top + rect.height / 2;
@@ -165,7 +165,7 @@ function toast(msg){
     const dx = mouseX - cx;
     const dy = mouseY - cy;
 
-    const max = 6; 
+    const max = 6;
     const angle = Math.atan2(dy, dx);
     const dist = Math.min(max, Math.hypot(dx, dy) / 25);
 
@@ -175,7 +175,7 @@ function toast(msg){
     pupilEl.style.transform = `translate(calc(-50% + ${px}px), calc(-50% + ${py}px))`;
   }
 
-  function loop(){
+  function loop() {
     movePupil(eyes[0], pupils[0]);
     movePupil(eyes[1], pupils[1]);
     requestAnimationFrame(loop);
@@ -185,7 +185,7 @@ function toast(msg){
 
   buddy.addEventListener("click", () => {
     buddy.classList.remove("pop");
-    void buddy.offsetWidth; 
+    void buddy.offsetWidth;
     buddy.classList.add("pop");
     toast("👀 Hey!");
   });
@@ -200,7 +200,7 @@ function toast(msg){
 })();
 
 
-function setupProjects(){
+function setupProjects() {
   const wrap = document.getElementById("projectsWrap");
   if (!wrap) return;
 
@@ -208,7 +208,7 @@ function setupProjects(){
   const search = document.getElementById("search");
   let active = "all";
 
-  function apply(){
+  function apply() {
     const q = (search?.value || "").trim().toLowerCase();
     wrap.querySelectorAll(".project").forEach(card => {
       const tags = (card.getAttribute("data-tags") || "").toLowerCase();
@@ -234,7 +234,7 @@ function setupProjects(){
 setupProjects();
 
 
-function setupGallery(){
+function setupGallery() {
   const modal = document.getElementById("modal");
   if (!modal) return;
 
@@ -242,7 +242,7 @@ function setupGallery(){
   const content = document.getElementById("modalContent");
   const closeBtn = document.getElementById("modalClose");
 
-  function close(){
+  function close() {
     modal.classList.remove("show");
     modal.setAttribute("aria-hidden", "true");
   }
@@ -259,10 +259,10 @@ function setupGallery(){
 
       title.textContent = t;
 
-      if (type === "image"){
+      if (type === "image") {
         content.innerHTML =
           `<img alt="${t}" src="${src}" style="border-radius:16px;border:1px solid rgba(255,120,90,.18);width:100%;">`;
-      } else if (type === "video"){
+      } else if (type === "video") {
         content.innerHTML = `
           <video controls style="width:100%;border-radius:16px;border:1px solid rgba(255,120,90,.18);">
             <source src="${src}" type="video/mp4">
@@ -280,77 +280,71 @@ function setupGallery(){
 setupGallery();
 
 
-function setupContact(){
+function setupContact() {
   const form = document.getElementById("contactForm");
   if (!form) return;
 
-  form.addEventListener("submit", async (e) => {
+  form.addEventListener("submit", (e) => {
     e.preventDefault();
-    
+
     const name = form.name.value.trim();
     const email = form.email.value.trim();
     const msg = form.message.value.trim();
 
-    if (!name || !email || !msg){
+    if (!name || !email || !msg) {
       toast("Please fill all fields.");
       return;
     }
-    if (!email.includes("@")){
+    if (!email.includes("@")) {
       toast("Enter a valid email.");
       return;
     }
 
-    try {
-      
-      const formData = new FormData(form);
-      await fetch("https://formsubmit.co/slom3010bajaba@gmail.com", {
-        method: "POST",
-        body: formData
-      });
+    const subject = encodeURIComponent(`Portfolio message from ${name}`);
+    const body = encodeURIComponent(
+      `Name: ${name}\nEmail: ${email}\n\nMessage:\n${msg}`
+    );
+    const mailto = `mailto:slom3010bajaba@gmail.com?subject=${subject}&body=${body}`;
 
-     
-      const successMsg = document.getElementById("successMessage");
-      const formContainer = document.getElementById("formContainer");
-      if (successMsg && formContainer) {
-        formContainer.style.display = "none";
-        successMsg.style.display = "block";
-      }
-      
-      form.reset();
-    } catch (error) {
-      toast("Error sending message. Please try again.");
-      console.error(error);
+    window.location.href = mailto;
+    toast("Your email app is opening.");
+
+    const successMsg = document.getElementById("successMessage");
+    const formContainer = document.getElementById("formContainer");
+    if (successMsg && formContainer) {
+      formContainer.style.display = "none";
+      successMsg.style.display = "block";
     }
   });
 
   const copyBtn = document.getElementById("copyEmail");
   copyBtn?.addEventListener("click", async () => {
     const email = copyBtn.getAttribute("data-email") || "";
-    try{
+    try {
       await navigator.clipboard.writeText(email);
       toast("Email copied!");
-    }catch{
+    } catch {
       toast("Copy failed.");
     }
   });
 }
 setupContact();
 
-(function navFace(){
+(function navFace() {
   const nav = document.querySelector(".navlinks");
   if (!nav) return;
 
   const FACE_SRC = "assets/me.jpg";
 
   const face = document.createElement("div");
-  face.className = "nav-face"; 
+  face.className = "nav-face";
   face.setAttribute("aria-hidden", "true");
   face.innerHTML = `<img src="${FACE_SRC}" alt="">`;
   nav.appendChild(face);
 
   const links = Array.from(nav.querySelectorAll("a[data-nav]"));
 
-  function setX(link){
+  function setX(link) {
     if (!link) return;
     const navRect = nav.getBoundingClientRect();
     const rect = link.getBoundingClientRect();
@@ -358,7 +352,7 @@ setupContact();
     face.style.setProperty("--x", `${x}px`);
   }
 
-  function jump(){
+  function jump() {
     face.classList.remove("jump");
     void face.offsetWidth;
     face.classList.add("jump");
@@ -373,7 +367,7 @@ setupContact();
     face.classList.add("ready");
   });
 
-  
+
   links.forEach(a => {
     a.addEventListener("click", (e) => {
       if (e.metaKey || e.ctrlKey || e.shiftKey || e.altKey || e.button !== 0) return;
@@ -419,7 +413,7 @@ if (typeof IntersectionObserver !== 'undefined') {
 
 
 /* Scroll Animation for Stats */
-(function initScrollAnimations(){
+(function initScrollAnimations() {
   const observer = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
       if (entry.isIntersecting) {
